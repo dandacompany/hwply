@@ -1,6 +1,6 @@
 [package]
 name = "hwply-cli"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 description = "hwply CLI: 실행 중인 hwply 앱의 열린 문서를 조회·편집·저장한다"
 license = "MIT"
