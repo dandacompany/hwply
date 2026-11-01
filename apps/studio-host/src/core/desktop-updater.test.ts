@@ -3,6 +3,7 @@ import {
   DesktopUpdaterController,
   invokeUpdaterButton,
   shouldOfferManualDownloads,
+  shouldRecheckOnOpen,
   type DesktopUpdaterBridge,
   type UpdaterSnapshot,
 } from './desktop-updater';
@@ -141,6 +142,28 @@ describe('desktop updater controller', () => {
     expect(controller.current()?.manualDownloadsUrl).toContain('/updates/');
     expect((await controller.check()).failure?.retryable).toBe(true);
     expect((await controller.check()).status).toBe('available');
+  });
+});
+
+describe('update dialog recheck on open', () => {
+  it('rechecks when the last result is idle (up to date) or a retryable failure', () => {
+    expect(shouldRecheckOnOpen(snapshot({ status: 'idle' }))).toBe(true);
+    expect(shouldRecheckOnOpen(snapshot({
+      status: 'error',
+      failure: { code: 'network', message: 'x', retryable: true },
+    }))).toBe(true);
+  });
+
+  it('leaves in-progress, actionable and blocked states alone', () => {
+    for (const status of ['checking', 'available', 'downloading', 'installing', 'restartRequired'] as const) {
+      expect(shouldRecheckOnOpen(snapshot({ status })), status).toBe(false);
+    }
+    expect(shouldRecheckOnOpen(snapshot({ status: 'idle', blocker: 'unsupportedInstall' }))).toBe(false);
+    expect(shouldRecheckOnOpen(snapshot({
+      status: 'error',
+      failure: { code: 'sig', message: 'x', retryable: false },
+    }))).toBe(false);
+    expect(shouldRecheckOnOpen(null)).toBe(false);
   });
 });
 

@@ -168,6 +168,16 @@ export function updaterStatusMessage(snapshot: UpdaterSnapshot): string {
   }
 }
 
+/**
+ * 업데이트 창을 열 때 새로 확인할지. 마지막 결과가 "최신" 이거나 다시 시도할 수 있는 실패면 확인하고,
+ * 확인·다운로드·설치 중이거나 설치할 업데이트가 있거나 막힌 설치 형식이면 그대로 둔다.
+ */
+export function shouldRecheckOnOpen(snapshot: UpdaterSnapshot | null): boolean {
+  if (!snapshot || snapshot.blocker) return false;
+  if (snapshot.status === 'idle') return true;
+  return snapshot.status === 'error' && Boolean(snapshot.failure?.retryable);
+}
+
 export function shouldOfferManualDownloads(
   snapshot: UpdaterSnapshot | null,
   actionError?: string,

@@ -4,6 +4,7 @@ import {
   getDesktopUpdaterController,
   invokeUpdaterButton,
   shouldOfferManualDownloads,
+  shouldRecheckOnOpen,
   updaterStatusMessage,
   type DesktopUpdaterController,
   type UpdaterSnapshot,
@@ -21,6 +22,13 @@ export async function showUpdateDialog(): Promise<void> {
     activeDialog = null;
   };
   activeDialog.show();
+  // 지난번 결과("최신")를 그대로 보여 주지 않고, 창을 열 때 새로 확인한다.
+  if (shouldRecheckOnOpen(controller.current())) {
+    const dialog = activeDialog;
+    void controller.check().catch((error: unknown) => {
+      dialog.showError(`업데이트 확인 실패: ${error}`);
+    });
+  }
 }
 
 class UpdateDialog extends ModalDialog {
@@ -101,6 +109,10 @@ class UpdateDialog extends ModalDialog {
       });
       this.content.appendChild(fallback);
     }
+  }
+
+  showError(message: string): void {
+    this.render(this.controller.current(), message);
   }
 
   private async runAction(target: EventTarget | null): Promise<void> {
