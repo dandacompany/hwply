@@ -4,7 +4,9 @@ import { join, resolve } from 'node:path';
 import { execFileSync } from 'node:child_process';
 
 const root = resolve(new URL('..', import.meta.url).pathname);
-const sourceLogo = join(root, 'assets/logo/logo-source.png');
+// 원본: hwply-icon.svg(여백 없음 — PNG·ICO·창·파비콘), hwply-icon-macos.svg(Apple 아이콘 격자 — icns).
+const sourceLogo = join(root, 'assets/logo/hwply-icon.svg');
+const sourceMacos = join(root, 'assets/logo/hwply-icon-macos.svg');
 const logoDir = join(root, 'assets/logo');
 const pnpmCommand = process.platform === 'win32' ? 'pnpm.cmd' : 'pnpm';
 
@@ -41,6 +43,16 @@ function generatePngs() {
     for (const [name, size] of pngTargets) {
       copyFileSync(join(tempRoot, `${size}x${size}.png`), join(logoDir, name));
     }
+  } finally {
+    rmSync(tempRoot, { recursive: true, force: true });
+  }
+}
+
+function generateIcns() {
+  const tempRoot = mkdtempSync(join(tmpdir(), 'hwply-icns-'));
+  try {
+    run(pnpmCommand, ['--filter', 'hwply-desktop', 'tauri', 'icon', sourceMacos, '--output', tempRoot]);
+    copyFileSync(join(tempRoot, 'icon.icns'), join(logoDir, 'hwply.icns'));
   } finally {
     rmSync(tempRoot, { recursive: true, force: true });
   }
@@ -83,9 +95,10 @@ function copyIfPresent(from, to) {
 
 mkdirSync(logoDir, { recursive: true });
 generatePngs();
+generateIcns();
 writeIco(join(logoDir, 'favicon.ico'), [16, 32, 48, 256].map(size => join(logoDir, `logo-${size}.png`)));
 
 copyFileSync(join(logoDir, 'favicon.ico'), join(root, 'apps/studio-host/public/favicon.ico'));
 copyIfPresent(join(logoDir, 'favicon.ico'), join(root, 'apps/studio-host/dist/favicon.ico'));
 
-console.log('Generated Windows/Linux app icons from assets/logo/logo-source.png');
+console.log('Generated app icons (PNG, ICO, ICNS) from assets/logo/hwply-icon*.svg');

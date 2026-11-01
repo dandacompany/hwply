@@ -17,7 +17,7 @@
     "build:desktop": "pnpm --filter hwply-desktop build",
     "tauri": "pnpm --filter hwply-desktop tauri",
     "test": "pnpm run check:committed-rhwp && pnpm run test:automation && pnpm run test:upstream && pnpm run test:studio && pnpm run test:desktop && pnpm run test:cli",
-    "test:automation": "node --test tests/upstream-check.test.mjs tests/product-boundary.test.mjs tests/product-version.test.mjs tests/release-checksums.test.mjs tests/windows-packaging.test.mjs tests/committed-rhwp.test.mjs tests/rhwp-upstream-release.test.mjs tests/rhwp-upstream-release-policy.test.mjs tests/fonts-and-notices.test.mjs tests/macos-bundle.test.mjs tests/actions-workflows.test.mjs tests/release-config.test.mjs tests/third-party.test.mjs tests/skill.test.mjs tests/sidecars.test.mjs tests/release-assemble.test.mjs tests/public-tree.test.mjs",
+    "test:automation": "node --test tests/upstream-check.test.mjs tests/product-boundary.test.mjs tests/product-version.test.mjs tests/release-checksums.test.mjs tests/windows-packaging.test.mjs tests/committed-rhwp.test.mjs tests/rhwp-upstream-release.test.mjs tests/rhwp-upstream-release-policy.test.mjs tests/fonts-and-notices.test.mjs tests/macos-bundle.test.mjs tests/actions-workflows.test.mjs tests/release-config.test.mjs tests/third-party.test.mjs tests/skill.test.mjs tests/sidecars.test.mjs tests/release-assemble.test.mjs tests/public-tree.test.mjs tests/app-icons.test.mjs",
     "test:upstream": "node --test tests/update-upstream.test.mjs tests/rhwp-pin.test.mjs tests/rhwp-baseline.test.mjs",
     "test:studio": "pnpm --filter @hwply/studio-host test",
     "test:desktop": "cd apps/desktop/src-tauri && cargo test --locked",
