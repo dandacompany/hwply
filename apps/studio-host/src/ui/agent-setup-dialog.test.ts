@@ -5,6 +5,7 @@ const invoke = vi.hoisted(() => vi.fn());
 vi.mock('@tauri-apps/api/core', () => ({ invoke }));
 
 import {
+  waitForQuietStartup,
   maybeShowAgentSetupOnStartup,
   shouldAutoShow,
   showAgentSetupDialog,
@@ -99,6 +100,66 @@ describe('agent setup dialog', () => {
     expect(text).toContain('기존 파일 유지');
     expect(text).toContain('export PATH="$HOME/.local/bin:$PATH"');
     expect(text).toContain('hwply setup');
+  });
+
+  it('waits for the document and for other startup dialogs (recovery) before showing', async () => {
+    vi.useFakeTimers();
+    try {
+      let ready = false;
+      const recovery = document.createElement('div');
+      recovery.className = 'modal-overlay';
+      document.body.appendChild(recovery);
+      let done = false;
+      void waitForQuietStartup(() => ready, { pollMs: 100, timeoutMs: 10_000 }).then(() => { done = true; });
+
+      await vi.advanceTimersByTimeAsync(500);
+      expect(done).toBe(false); // 문서가 아직 열리지 않았다
+      ready = true;
+      await vi.advanceTimersByTimeAsync(500);
+      expect(done).toBe(false); // 복구 창이 떠 있다
+      recovery.remove();
+      document.dispatchEvent(new Event('rhwp-modal-dialog-closed'));
+      await vi.advanceTimersByTimeAsync(200);
+      expect(done).toBe(true);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('shows without a document when startup stays quiet (desktop opens no blank document)', async () => {
+    vi.useFakeTimers();
+    try {
+      let done = false;
+      void waitForQuietStartup(() => false, { pollMs: 100, quietMs: 1_000, timeoutMs: 30_000 }).then(() => { done = true; });
+      await vi.advanceTimersByTimeAsync(600);
+      expect(done).toBe(false);
+      await vi.advanceTimersByTimeAsync(600);
+      expect(done).toBe(true);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('a recovery dialog that appears during the quiet window is waited out', async () => {
+    vi.useFakeTimers();
+    try {
+      let done = false;
+      void waitForQuietStartup(() => false, { pollMs: 100, quietMs: 1_000, timeoutMs: 30_000 }).then(() => { done = true; });
+      await vi.advanceTimersByTimeAsync(500);
+      const recovery = document.createElement('div');
+      recovery.className = 'modal-overlay';
+      document.body.appendChild(recovery); // 복구 창은 시작 조금 뒤에 뜬다
+      await vi.advanceTimersByTimeAsync(5_000);
+      expect(done).toBe(false);
+      recovery.remove();
+      document.dispatchEvent(new Event('rhwp-modal-dialog-closed'));
+      await vi.advanceTimersByTimeAsync(500);
+      expect(done).toBe(false); // 닫힌 뒤에도 잠시 조용한지 본다
+      await vi.advanceTimersByTimeAsync(800);
+      expect(done).toBe(true);
+    } finally {
+      vi.useRealTimers();
+    }
   });
 
   it('later dismisses without applying', async () => {

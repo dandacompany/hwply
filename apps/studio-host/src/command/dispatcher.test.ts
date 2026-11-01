@@ -52,6 +52,7 @@ describe('desktop command dispatcher adapter', () => {
     createDispatcher();
     await flushSetup();
     expect(installAgentSetupPrompt).toHaveBeenCalledOnce();
+    expect(installAgentSetupPrompt).toHaveBeenCalledWith(expect.any(Function));
   });
 
   it('owns toolbar and native event cleanup for the active registration', async () => {

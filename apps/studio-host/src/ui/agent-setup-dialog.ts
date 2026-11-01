@@ -1,5 +1,5 @@
 import { invoke } from '@tauri-apps/api/core';
-import { ModalDialog } from '@upstream/ui/dialog';
+import { MODAL_DIALOG_CLOSED_EVENT, ModalDialog } from '@upstream/ui/dialog';
 
 /** `hwply setup --json` 의 결과 모양(apps/cli/src/setup). */
 export interface SetupAction {
@@ -46,9 +46,36 @@ export async function maybeShowAgentSetupOnStartup(windowLabel: string): Promise
   if (shouldAutoShow(status)) await showAgentSetupDialog(status);
 }
 
+/**
+ * 시작 직후의 다른 창(자동저장 복구 등)과 겹치지 않을 때까지 기다린다.
+ * 문서가 열렸으면(isReady) 복구 창은 뜨지 않으므로 바로 진행하고, 아니면 quietMs 동안 다른 모달이
+ * 뜨지 않을 때 진행한다(데스크톱은 시작 때 빈 문서를 열지 않는다). 모달이 떠 있으면 닫힐 때까지 기다리고
+ * 닫힌 뒤 다시 조용한지 본다. 모달이 없는데도 timeoutMs 가 지나면 그냥 진행한다.
+ */
+export async function waitForQuietStartup(
+  isReady: () => boolean,
+  { pollMs = 200, quietMs = 3_000, timeoutMs = 30_000 }: { pollMs?: number; quietMs?: number; timeoutMs?: number } = {},
+): Promise<void> {
+  const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+  const deadline = Date.now() + timeoutMs;
+  let quietSince = Date.now();
+  for (;;) {
+    if (document.querySelector('.modal-overlay')) {
+      await new Promise<void>((resolve) => {
+        document.addEventListener(MODAL_DIALOG_CLOSED_EVENT, () => resolve(), { once: true });
+      });
+      quietSince = Date.now();
+      continue;
+    }
+    if (isReady() || Date.now() - quietSince >= quietMs || Date.now() >= deadline) return;
+    await sleep(pollMs);
+  }
+}
+
 /** 앱 시작 때 부른다. 실패해도 편집기는 계속 쓴다. */
-export async function installAgentSetupPrompt(): Promise<void> {
+export async function installAgentSetupPrompt(isDocumentReady: () => boolean = () => true): Promise<void> {
   try {
+    await waitForQuietStartup(isDocumentReady);
     const { getCurrentWebviewWindow } = await import('@tauri-apps/api/webviewWindow');
     await maybeShowAgentSetupOnStartup(getCurrentWebviewWindow().label);
   } catch (error) {

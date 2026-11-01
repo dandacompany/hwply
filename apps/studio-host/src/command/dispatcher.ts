@@ -32,7 +32,8 @@ export class CommandDispatcher extends UpstreamCommandDispatcher {
       if (status) status.textContent = message;
     };
     const agent = installDesktopAgent(host, services, setMessage);
-    void installAgentSetupPrompt();
+    // 문서가 열리고 시작 때의 다른 창(자동저장 복구)이 닫힌 뒤에 설정 안내를 띄운다.
+    void installAgentSetupPrompt(() => (services.wasm?.pageCount ?? 0) > 0);
     const disposeAdapters = installDesktopAdapters({
       host,
       dispatcher: this,
