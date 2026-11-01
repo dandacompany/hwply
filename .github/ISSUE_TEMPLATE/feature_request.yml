@@ -1,0 +1,49 @@
+name: 개선 제안
+description: hwply에서 해결하고 싶은 사용상의 문제나 기능을 제안해 주세요.
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        [기존 이슈](https://github.com/dandacompany/hwply/issues)에 같은 제안이 있는지 먼저 확인해 주세요.
+        개인정보나 기밀이 담긴 문서·화면은 첨부하지 마세요.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: 해결하고 싶은 문제
+      description: 어떤 상황에서 불편을 겪었고 누구에게 필요한 개선인지 알려주세요.
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: 원하는 동작
+      description: 원하는 기능이나 개선 방향을 설명해 주세요. 고려한 다른 방법이 있다면 함께 적어주세요.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: 관련 영역
+      options:
+        - 문서 편집·표시
+        - 파일 열기·저장·PDF 내보내기
+        - 글꼴
+        - 인쇄
+        - 설치·업데이트
+        - Windows 통합·썸네일
+        - Linux 통합·썸네일
+        - UI·사용성·접근성
+        - 사용자 안내·문서
+        - 기타
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 추가 정보 (선택)
+      description: 관련 이슈나 참고 자료, 공개 가능한 화면·최소 샘플을 추가할 수 있습니다.

@@ -1,0 +1,138 @@
+name: hwply CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  checks:
+    name: Checks (Node · Studio)
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Fetch upstream rhwp (sparse, pinned)
+        run: bash scripts/upstream/init.sh
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+      - name: Enable pnpm
+        run: corepack enable
+      - name: Resolve pnpm store path
+        id: pnpm-store
+        run: echo "path=$(pnpm store path)" >> "$GITHUB_OUTPUT"
+      - name: Cache pnpm store
+        uses: actions/cache@caa296126883cff596d87d8935842f9db880ef25 # v5.1.0
+        with:
+          path: ${{ steps.pnpm-store.outputs.path }}
+          key: pnpm-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: pnpm-${{ runner.os }}-
+      - name: Install Node dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Check product boundary
+        run: pnpm run check:product-boundary
+      - name: Check product version
+        run: pnpm run check:product-version
+      - name: Check action pins
+        run: pnpm run check:action-pins
+      - name: Verify rhwp pin
+        run: pnpm run check:rhwp-pin
+      - name: Verify committed rhwp
+        run: pnpm run check:committed-rhwp
+      - name: Test automation contracts
+        run: pnpm run test:automation
+      - name: Test upstream integration
+        run: pnpm run test:upstream
+      - name: Test studio host
+        run: pnpm run test:studio
+      - name: Build studio host
+        run: pnpm run build:studio
+
+  desktop:
+    name: Desktop (${{ matrix.os }})
+    needs: checks
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-15, windows-2025]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Fetch upstream rhwp (sparse, pinned)
+        shell: bash
+        run: bash scripts/upstream/init.sh
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+      - name: Enable pnpm
+        shell: bash
+        run: corepack enable
+      - name: Install Node dependencies
+        shell: bash
+        run: pnpm install --frozen-lockfile
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@6bed0761d98439e5a578e2877258200ad565ba87 # stable
+        with:
+          components: clippy
+      - name: Cache Cargo
+        uses: actions/cache@caa296126883cff596d87d8935842f9db880ef25 # v5.1.0
+        with:
+          path: |
+            ~/.cargo/registry/index
+            ~/.cargo/registry/cache
+            ~/.cargo/git/db
+            apps/desktop/src-tauri/target
+          key: cargo-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('apps/desktop/src-tauri/Cargo.lock') }}
+          restore-keys: cargo-${{ runner.os }}-${{ runner.arch }}-
+      - name: Build studio host
+        shell: bash
+        run: pnpm run build:studio
+      - name: Test desktop Rust
+        shell: bash
+        run: cargo test --manifest-path apps/desktop/src-tauri/Cargo.toml --locked
+      - name: Lint desktop Rust
+        shell: bash
+        run: cargo clippy --manifest-path apps/desktop/src-tauri/Cargo.toml --locked --all-targets -- -D warnings
+      - name: Test CLI
+        shell: bash
+        run: cargo test --manifest-path apps/cli/Cargo.toml --locked
+      - name: Lint CLI
+        shell: bash
+        run: cargo clippy --manifest-path apps/cli/Cargo.toml --locked --all-targets -- -D warnings
+      - name: Prepare sidecars (hwply-cli, rhwp)
+        shell: bash
+        run: |
+          host="$(rustc -vV | sed -n 's/^host: //p')"
+          node scripts/prepare-sidecars.mjs --target "$host" --profile debug
+      - name: Build debug bundle (smoke)
+        shell: bash
+        run: pnpm --filter hwply-desktop exec tauri build --debug --bundles ${{ runner.os == 'Windows' && 'nsis' || 'app' }} --config src-tauri/tauri.bundle.conf.json
+      - name: Check bundle sidecars
+        shell: bash
+        run: |
+          if [ "$RUNNER_OS" = "Windows" ]; then
+            node scripts/check-bundle-sidecars.mjs --dir apps/desktop/src-tauri/target/debug
+          else
+            node scripts/check-bundle-sidecars.mjs --app apps/desktop/src-tauri/target/debug/bundle/macos/hwply.app
+          fi
+      - name: Upload bundle
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: hwply-debug-${{ matrix.os }}
+          path: |
+            apps/desktop/src-tauri/target/debug/bundle/macos/*.app
+            apps/desktop/src-tauri/target/debug/bundle/nsis/*.exe
+          if-no-files-found: error
+          retention-days: 7

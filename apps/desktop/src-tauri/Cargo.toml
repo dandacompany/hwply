@@ -1,0 +1,68 @@
+[package]
+name = "hwply-desktop"
+version = "0.1.0"
+edition = "2021"
+description = "hwply desktop app for HWP and HWPX documents"
+license = "MIT"
+
+[lib]
+name = "hwply_desktop"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[[bin]]
+name = "hwply"
+path = "src/main.rs"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dev-dependencies]
+sha2 = "=0.10.9"
+tower = { version = "0.5", features = ["util"] }
+http-body-util = "0.1"
+
+[dependencies]
+rhwp = { path = "../../../third_party/rhwp" }
+tauri = { version = "2", features = [] }
+tauri-plugin-dialog = "2"
+tauri-plugin-fs = "2.5"
+tauri-plugin-log = "2"
+tauri-plugin-single-instance = "2"
+tauri-plugin-store = "2"
+tauri-plugin-window-state = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+semver = "1"
+uuid = { version = "1", features = ["v4", "serde"] }
+tempfile = "3"
+open = "5"
+svg2pdf = "0.13"
+usvg = "0.45"
+ttf-parser = "0.25"
+pdf-writer = "0.12"
+roxmltree = "0.20"
+tokio = { version = "1", features = ["sync", "time", "macros", "rt", "net"] }
+getrandom = "0.3"
+axum = { version = "0.8", default-features = false, features = ["http1", "json", "tokio", "query"] }
+async-trait = "0.1"
+futures-util = { version = "0.3", default-features = false, features = ["std"] }
+
+[target.'cfg(any(target_os = "windows", target_os = "linux", target_os = "macos"))'.dependencies]
+tauri-plugin-updater = "=2.10.1"
+
+[target.'cfg(windows)'.dependencies]
+winreg = "0.55"
+sha2 = "=0.10.9"
+windows = { version = "=0.61.3", features = [
+  "Win32_Foundation",
+  "Win32_Graphics_Gdi",
+  "Win32_Security",
+  "Win32_Storage_FileSystem",
+  "Win32_System_Com",
+  "Win32_System_Console",
+  "Win32_System_IO",
+  "Win32_System_JobObjects",
+  "Win32_System_Pipes",
+  "Win32_System_Threading",
+  "Win32_UI_Shell",
+] }

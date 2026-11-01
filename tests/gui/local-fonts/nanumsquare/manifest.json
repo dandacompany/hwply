@@ -1,0 +1,7 @@
+{
+  "source": "https://hangeul.naver.com/hangeul_static/webfont/zips/nanum-square.zip",
+  "retrievedOn": "2026-09-25",
+  "file": "NanumSquareB.ttf",
+  "sha256": "f737d58294faec9c632189af3a2a3e48e49c03c0256de09db61e879e2857bfbf",
+  "purpose": "Task #74: 실제 한국어/영문 face 이름, Bold 매칭 회귀. 시스템에 설치하지 않음."
+}

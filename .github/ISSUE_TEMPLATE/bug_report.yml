@@ -1,0 +1,104 @@
+name: 버그 제보
+description: hwply의 문서 표시·편집·설치·운영체제 통합 문제를 알려주세요.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        먼저 [기존 이슈](https://github.com/dandacompany/hwply/issues)를 확인해 주세요.
+        개인정보·기밀이 담긴 문서나 화면, 토큰과 글꼴 바이너리를 첨부하지 마세요.
+        보안 취약점은 [비공개 보안 제보](https://github.com/dandacompany/hwply/security/advisories/new)를 이용하세요.
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: 운영체제
+      options:
+        - Windows
+        - Linux (Ubuntu/Debian)
+        - Linux (Fedora/RHEL)
+        - Linux (기타 배포판)
+    validations:
+      required: true
+
+  - type: input
+    id: os-version
+    attributes:
+      label: 운영체제 버전과 아키텍처
+      placeholder: "예: Windows 11 24H2 x64, Ubuntu 24.04 x64, Ubuntu 24.04 arm64"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: package
+    attributes:
+      label: 설치 형식 또는 빌드 출처
+      options:
+        - NSIS (.exe)
+        - MSI (.msi)
+        - AppImage
+        - DEB
+        - RPM
+        - GitHub Actions 검증용 artifact
+        - 로컬 개발 빌드
+        - 확인하지 못함
+    validations:
+      required: true
+
+  - type: input
+    id: hwply-version
+    attributes:
+      label: hwply 버전 또는 commit
+      description: 앱의 정보 화면이나 설치 파일 이름에서 확인할 수 있습니다. 실행할 수 없다면 설치 파일 이름을 적어주세요.
+      placeholder: "예: 0.1.0, hwply_0.1.0_x64-setup.exe, 개발 빌드 commit SHA"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 실제로 발생한 문제
+      description: 문제와 영향을 설명해 주세요. 화면이나 최소 재현 문서는 공개 가능한 경우에만 첨부하세요.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 재현 순서
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 기대한 동작
+    validations:
+      required: true
+
+  - type: dropdown
+    id: rhwp-result
+    attributes:
+      label: upstream rhwp 비교 (선택)
+      description: 공개 가능한 문서의 파싱·편집·배치 문제만 [rhwp 데모](https://edwardkim.github.io/rhwp/)에서 비교할 수 있습니다. 설치·OS 통합 문제는 비교하지 않아도 됩니다. 기밀 문서는 데모에 올리지 마세요.
+      options:
+        - 비교하지 않았음 (기밀 문서 포함)
+        - 비교 불필요 (설치·운영체제 통합 등)
+        - rhwp에서는 문제가 발생하지 않음
+        - rhwp에서도 같은 문제가 발생함
+
+  - type: input
+    id: rhwp-issue
+    attributes:
+      label: 관련 rhwp 이슈 (선택)
+      placeholder: "https://github.com/edwardkim/rhwp/issues/..."
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 추가 정보 (선택)
+      description: 관련 이슈, 입력기, 설치 글꼴 이름, 화면 배율이나 오류 메시지 등. 로그·화면의 개인정보와 토큰을 제거해 주세요.

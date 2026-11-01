@@ -1,0 +1,27 @@
+[package]
+name = "hwply-cli"
+version = "0.1.0"
+edition = "2021"
+description = "hwply CLI: 실행 중인 hwply 앱의 열린 문서를 조회·편집·저장한다"
+license = "MIT"
+
+[[bin]]
+name = "hwply"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+ureq = { version = "2", features = ["json"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+unicode-normalization = "0.1"
+tempfile = "3"
+
+[target.'cfg(windows)'.dependencies]
+winreg = "0.56"
+windows-sys = { version = "0.61", features = ["Win32_Foundation", "Win32_UI_WindowsAndMessaging"] }
+
+[dev-dependencies]
+mockito = "1"
+assert_cmd = "2"
+predicates = "3"

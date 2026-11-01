@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "family": "Abel",
+  "postScriptName": "Abel-Regular",
+  "license": "SIL OFL 1.1",
+  "source": "https://github.com/google/fonts/tree/b5efa9c32e8f9b63005f5cdb1ad5527a77d2cd04/ofl/abel",
+  "rhwpCommit": "496333b27d21ddb9114ba9ae340bcb895870c9a7",
+  "sampleText": "HWPLY LOCAL FONT 0123456789 iii WWW Abel",
+  "documents": "제품 bundled WASM으로 생성한 공개 테스트 문서. 한글 coverage 수용용이 아님.",
+  "files": {
+    "Abel-Regular.ttf": "8809dcad25318225052f88333e208c5aad4adcb7b2c934c135735ec19aa410b4",
+    "OFL.txt": "b62d29f5238d448aca03078eb0ca0f4607f6c679e6676b6a51ce4916022bb59d",
+    "abel.hwp": "978118854bbf4b93894489d4a7517ca79040052bb993ce6f5f4ee8a15a3c5892",
+    "abel.hwpx": "65ebf83f5def3b201750ca0ef010a0c085c6d81efe5c9d67a2c59f87e9eafc81"
+  },
+  "licenseNote": "라이선스 본문은 원문 그대로이며 줄 끝 공백만 정리함."
+}

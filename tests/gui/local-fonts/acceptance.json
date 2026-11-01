@@ -1,0 +1,1501 @@
+{
+  "schemaVersion": 1,
+  "stage4Status": "task74-correction-accepted-final-windows-release-integration-pending",
+  "runId": 36104289925,
+  "attempt": 1,
+  "profile": "full",
+  "scope": "full",
+  "workflowSha": "a2f48b5013e86f9d21b67f4f36c79895f6a61297",
+  "sourceSha": "a2f48b5013e86f9d21b67f4f36c79895f6a61297",
+  "ciStatus": "completed",
+  "ciConclusion": "success",
+  "jobs": [
+    {
+      "name": "select",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Windows PDF cleanup tests",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "artifacts / plan",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "fast",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "Unit tests",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "installer",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "artifacts / fast / Fast Node and Studio contracts",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "artifacts / fast / Fast Windows PowerShell contracts",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "artifacts / windows / Build windows-x64",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "artifacts / linux / Build linux-x64",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "artifacts / linux / Build linux-arm64",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "artifacts / core / Core linux-x64",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "artifacts / core / Core windows-x64",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "artifacts / core / Core linux-arm64",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "artifacts / smoke / Installer contract msi-forced-reinstall",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "artifacts / smoke / Installer contract msi",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "artifacts / smoke / Installer contract nsis",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "artifacts / smoke / Compare Windows thumbnail context ${{ matrix.replica }}",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "name": "artifacts / smoke / Verify Windows installer contract status",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "artifacts / result",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 10851346017,
+      "name": "hwply-desktop-linux-x64",
+      "digest": "sha256:77813cbdcd4ed64f452e84614901073f2a3fbb76764380c92e491fe3eef8df37",
+      "size_in_bytes": 547683528,
+      "expired": false,
+      "url": "https://github.com/dandacompany/hwply/actions/runs/36104289925/artifacts/10851346017",
+      "archiveDigestVerifiedLocally": false,
+      "inventoryVerifiedLocally": false,
+      "archiveAndInventoryVerifiedByGuiRun": 36222469761,
+      "installers": [
+        {
+          "path": "appimage/hwply_0.1.0_amd64.AppImage",
+          "kind": "appimage",
+          "size": 134031864,
+          "sha256": "e3bc4a6fe8cb1fe36b121bfdbfbb2edb063db8ba2c6653524e2a1a1e8bfbc4ad"
+        },
+        {
+          "path": "deb/hwply_0.1.0_amd64.deb",
+          "kind": "deb",
+          "size": 64847060,
+          "sha256": "f265e9dd0e9ae5e4b5ef5c4a95edf282992909a0301e3e7c4ecfc13226a1f098"
+        },
+        {
+          "path": "rpm/hwply-0.1.0-1.x86_64.rpm",
+          "kind": "rpm",
+          "size": 64846298,
+          "sha256": "508c2ea534bd5fa844d4fcffadb6032ee11da3937823b3bb6af3e87d00120dbd"
+        }
+      ]
+    },
+    {
+      "id": 10851097179,
+      "name": "hwply-desktop-linux-arm64",
+      "digest": "sha256:78cea15bf5d676dc8ecdfcd2e6d289ac21c84d3d581b73a1beaf523b0a2b63b4",
+      "size_in_bytes": 194160788,
+      "expired": false,
+      "url": "https://github.com/dandacompany/hwply/actions/runs/36104289925/artifacts/10851097179",
+      "archiveDigestVerifiedLocally": false,
+      "inventoryVerifiedLocally": false
+    },
+    {
+      "id": 10850898849,
+      "name": "hwply-desktop-windows-x64",
+      "digest": "sha256:f141646409c524d0a208a8fc69e2776ed042049238d5ae4062f06f565067a69c",
+      "size_in_bytes": 124122875,
+      "expired": false,
+      "url": "https://github.com/dandacompany/hwply/actions/runs/36104289925/artifacts/10850898849",
+      "archiveDigestVerifiedLocally": true,
+      "inventoryVerifiedLocally": true,
+      "installers": [
+        {
+          "path": "msi/hwply_0.1.0_x64_en-US.msi",
+          "kind": "msi",
+          "size": 62189568,
+          "sha256": "8ade5d4e51ae6604b923f71b7c6a5e0cc7c28f9d99303ed3e8d78c71bae0ff8c"
+        },
+        {
+          "path": "nsis/hwply_0.1.0_x64-setup.exe",
+          "kind": "nsis",
+          "size": 55256451,
+          "sha256": "5f8e8940c3f325abff75de65b30d61385e9b627d0c6e5044a118c521d9e57770"
+        }
+      ]
+    }
+  ],
+  "windowsInstallerRawResults": [
+    {
+      "installer": "msi",
+      "scenario": "forced-reinstall",
+      "rawStatus": "failed",
+      "rawSmoke": "failure",
+      "rawExitCode": 1,
+      "failureCount": 1,
+      "diagnosticContract": "passed",
+      "contract": "msi-forced-reinstall-reboot",
+      "thumbnailStatus": "passed",
+      "lifecycleStatus": "reboot-required",
+      "reasonCodes": [
+        "msi-reboot-required",
+        "post-reboot-unverified"
+      ],
+      "failureCategories": [
+        "reboot-required"
+      ]
+    },
+    {
+      "installer": "msi",
+      "scenario": "lifecycle",
+      "rawStatus": "passed",
+      "rawSmoke": "success",
+      "rawExitCode": 0,
+      "failureCount": 0,
+      "diagnosticContract": "passed",
+      "contract": "strict-product",
+      "thumbnailStatus": "passed",
+      "lifecycleStatus": "passed",
+      "reasonCodes": [
+        "scenario-observed"
+      ],
+      "failureCategories": []
+    },
+    {
+      "installer": "nsis",
+      "scenario": "lifecycle",
+      "rawStatus": "failed",
+      "rawSmoke": "failure",
+      "rawExitCode": 1,
+      "failureCount": 12,
+      "diagnosticContract": "passed",
+      "contract": "hosted-nsis-diagnostic",
+      "thumbnailStatus": "not-accepted",
+      "lifecycleStatus": "passed",
+      "reasonCodes": [
+        "nsis-per-user-shell-activation-failed"
+      ],
+      "failureCategories": [
+        "thumbnail-render"
+      ]
+    }
+  ],
+  "rawLimitations": [
+    "NSIS Shell thumbnail HRESULT 0x80040154",
+    "MSI forced reinstall exit 3010 (reboot required)"
+  ],
+  "gui": {
+    "windows-x64": "User confirmed NanumSquare and Abel apply after installation and re-detection on 2026-09-26; current-candidate restart/new-window scenarios not explicitly reported",
+    "linux-x64": "passed on exact current product: Canvas2D/CanvasKit application, refresh, file removal/recovery, six process restarts and four native new-window scenarios; run 36222469761",
+    "linux-arm64": "not in GUI acceptance scope"
+  },
+  "observations": [
+    {
+      "runId": 35979852070,
+      "name": "canvas2d-hwp-absent",
+      "pixelHash": "20147c9f350a86c8aa05b9ce5d55b4bdc0451c26fe5a85adff89e38aef50af88",
+      "backend": "canvas2d",
+      "abelFontFaces": 0,
+      "localTypefaceCount": null,
+      "unregisteredFontFallbacks": null,
+      "sourceSha": "8e7d26e44c09406d3203bb9140b2dbd8576d2375"
+    },
+    {
+      "runId": 35979852070,
+      "name": "canvas2d-hwpx-absent",
+      "pixelHash": "20147c9f350a86c8aa05b9ce5d55b4bdc0451c26fe5a85adff89e38aef50af88",
+      "backend": "canvas2d",
+      "abelFontFaces": 0,
+      "localTypefaceCount": null,
+      "unregisteredFontFallbacks": null,
+      "sourceSha": "8e7d26e44c09406d3203bb9140b2dbd8576d2375"
+    },
+    {
+      "runId": 35979852070,
+      "name": "canvas2d-hwp-enabled",
+      "pixelHash": "a74c84fc7c3bdc708c3477c8b4f1b2e31d42f9e39a2fb927e69154271862004f",
+      "backend": "canvas2d",
+      "abelFontFaces": 1,
+      "localTypefaceCount": null,
+      "unregisteredFontFallbacks": null,
+      "sourceSha": "8e7d26e44c09406d3203bb9140b2dbd8576d2375"
+    },
+    {
+      "runId": 35979852070,
+      "name": "canvas2d-hwpx-enabled",
+      "pixelHash": "a74c84fc7c3bdc708c3477c8b4f1b2e31d42f9e39a2fb927e69154271862004f",
+      "backend": "canvas2d",
+      "abelFontFaces": 1,
+      "localTypefaceCount": null,
+      "unregisteredFontFallbacks": null,
+      "sourceSha": "8e7d26e44c09406d3203bb9140b2dbd8576d2375"
+    },
+    {
+      "runId": 35979852070,
+      "name": "canvas2d-refreshed",
+      "pixelHash": "a74c84fc7c3bdc708c3477c8b4f1b2e31d42f9e39a2fb927e69154271862004f",
+      "backend": "canvas2d",
+      "abelFontFaces": 1,
+      "localTypefaceCount": null,
+      "unregisteredFontFallbacks": null,
+      "sourceSha": "8e7d26e44c09406d3203bb9140b2dbd8576d2375"
+    },
+    {
+      "runId": 35979852070,
+      "name": "canvas2d-font-deleted-refreshed",
+      "pixelHash": "20147c9f350a86c8aa05b9ce5d55b4bdc0451c26fe5a85adff89e38aef50af88",
+      "backend": "canvas2d",
+      "abelFontFaces": 0,
+      "localTypefaceCount": null,
+      "unregisteredFontFallbacks": null,
+      "sourceSha": "8e7d26e44c09406d3203bb9140b2dbd8576d2375"
+    },
+    {
+      "runId": 35979852070,
+      "name": "canvas2d-font-restored-refreshed",
+      "pixelHash": "a74c84fc7c3bdc708c3477c8b4f1b2e31d42f9e39a2fb927e69154271862004f",
+      "backend": "canvas2d",
+      "abelFontFaces": 1,
+      "localTypefaceCount": null,
+      "unregisteredFontFallbacks": null,
+      "sourceSha": "8e7d26e44c09406d3203bb9140b2dbd8576d2375"
+    },
+    {
+      "runId": 35979852070,
+      "name": "canvas2d-enabled-restarted",
+      "pixelHash": "a74c84fc7c3bdc708c3477c8b4f1b2e31d42f9e39a2fb927e69154271862004f",
+      "backend": "canvas2d",
+      "abelFontFaces": 1,
+      "localTypefaceCount": null,
+      "unregisteredFontFallbacks": null,
+      "sourceSha": "8e7d26e44c09406d3203bb9140b2dbd8576d2375"
+    },
+    {
+      "runId": 35979852070,
+      "name": "canvas2d-disabled",
+      "pixelHash": "20147c9f350a86c8aa05b9ce5d55b4bdc0451c26fe5a85adff89e38aef50af88",
+      "backend": "canvas2d",
+      "abelFontFaces": 0,
+      "localTypefaceCount": null,
+      "unregisteredFontFallbacks": null,
+      "sourceSha": "8e7d26e44c09406d3203bb9140b2dbd8576d2375"
+    },
+    {
+      "runId": 35979852070,
+      "name": "canvas2d-disabled-restarted",
+      "pixelHash": "20147c9f350a86c8aa05b9ce5d55b4bdc0451c26fe5a85adff89e38aef50af88",
+      "backend": "canvas2d",
+      "abelFontFaces": 0,
+      "localTypefaceCount": null,
+      "unregisteredFontFallbacks": null,
+      "sourceSha": "8e7d26e44c09406d3203bb9140b2dbd8576d2375"
+    },
+    {
+      "runId": 35979852070,
+      "name": "canvaskit-hwp-absent",
+      "pixelHash": "514cf38c99b18030ad62fca58b538428dd08eddd5ca909ee336330e63bdeaab5",
+      "backend": "canvaskit",
+      "abelFontFaces": 0,
+      "localTypefaceCount": 0,
+      "unregisteredFontFallbacks": 1,
+      "sourceSha": "8e7d26e44c09406d3203bb9140b2dbd8576d2375"
+    },
+    {
+      "runId": 35979852070,
+      "name": "canvaskit-hwpx-absent",
+      "pixelHash": "514cf38c99b18030ad62fca58b538428dd08eddd5ca909ee336330e63bdeaab5",
+      "backend": "canvaskit",
+      "abelFontFaces": 0,
+      "localTypefaceCount": 0,
+      "unregisteredFontFallbacks": 1,
+      "sourceSha": "8e7d26e44c09406d3203bb9140b2dbd8576d2375"
+    },
+    {
+      "runId": 35979852070,
+      "name": "canvaskit-hwp-enabled",
+      "pixelHash": "01eea1f1bb61e3cedb5a5b96f42fd15cab473731fd0686181c7860fb57438a0b",
+      "backend": "canvaskit",
+      "abelFontFaces": 1,
+      "localTypefaceCount": 1,
+      "unregisteredFontFallbacks": 0,
+      "sourceSha": "8e7d26e44c09406d3203bb9140b2dbd8576d2375"
+    },
+    {
+      "runId": 35979852070,
+      "name": "canvaskit-hwpx-enabled",
+      "pixelHash": "01eea1f1bb61e3cedb5a5b96f42fd15cab473731fd0686181c7860fb57438a0b",
+      "backend": "canvaskit",
+      "abelFontFaces": 1,
+      "localTypefaceCount": 1,
+      "unregisteredFontFallbacks": 0,
+      "sourceSha": "8e7d26e44c09406d3203bb9140b2dbd8576d2375"
+    },
+    {
+      "runId": 35979852070,
+      "name": "canvaskit-refreshed",
+      "pixelHash": "514cf38c99b18030ad62fca58b538428dd08eddd5ca909ee336330e63bdeaab5",
+      "backend": "canvaskit",
+      "abelFontFaces": 1,
+      "localTypefaceCount": 0,
+      "unregisteredFontFallbacks": 1,
+      "sourceSha": "8e7d26e44c09406d3203bb9140b2dbd8576d2375"
+    },
+    {
+      "runId": 35979852070,
+      "name": "canvaskit-font-deleted-refreshed",
+      "pixelHash": "514cf38c99b18030ad62fca58b538428dd08eddd5ca909ee336330e63bdeaab5",
+      "backend": "canvaskit",
+      "abelFontFaces": 0,
+      "localTypefaceCount": 0,
+      "unregisteredFontFallbacks": 1,
+      "sourceSha": "8e7d26e44c09406d3203bb9140b2dbd8576d2375"
+    },
+    {
+      "runId": 35979852070,
+      "name": "canvaskit-font-restored-refreshed",
+      "pixelHash": "514cf38c99b18030ad62fca58b538428dd08eddd5ca909ee336330e63bdeaab5",
+      "backend": "canvaskit",
+      "abelFontFaces": 1,
+      "localTypefaceCount": 0,
+      "unregisteredFontFallbacks": 1,
+      "sourceSha": "8e7d26e44c09406d3203bb9140b2dbd8576d2375"
+    },
+    {
+      "runId": 35979852070,
+      "name": "canvaskit-enabled-restarted",
+      "pixelHash": "01eea1f1bb61e3cedb5a5b96f42fd15cab473731fd0686181c7860fb57438a0b",
+      "backend": "canvaskit",
+      "abelFontFaces": 1,
+      "localTypefaceCount": 1,
+      "unregisteredFontFallbacks": 0,
+      "sourceSha": "8e7d26e44c09406d3203bb9140b2dbd8576d2375"
+    },
+    {
+      "runId": 35984829169,
+      "sourceSha": "c4e9714123cdce801ec876ea9908f428d36b7df7",
+      "name": "canvas2d-hwp-absent",
+      "pixelHash": "20147c9f350a86c8aa05b9ce5d55b4bdc0451c26fe5a85adff89e38aef50af88",
+      "backend": "canvas2d",
+      "abelFontFaces": 0,
+      "localTypefaceCount": null,
+      "unregisteredFontFallbacks": null
+    },
+    {
+      "runId": 35984829169,
+      "sourceSha": "c4e9714123cdce801ec876ea9908f428d36b7df7",
+      "name": "canvas2d-hwpx-absent",
+      "pixelHash": "20147c9f350a86c8aa05b9ce5d55b4bdc0451c26fe5a85adff89e38aef50af88",
+      "backend": "canvas2d",
+      "abelFontFaces": 0,
+      "localTypefaceCount": null,
+      "unregisteredFontFallbacks": null
+    },
+    {
+      "runId": 35984829169,
+      "sourceSha": "c4e9714123cdce801ec876ea9908f428d36b7df7",
+      "name": "canvas2d-hwp-enabled",
+      "pixelHash": "a74c84fc7c3bdc708c3477c8b4f1b2e31d42f9e39a2fb927e69154271862004f",
+      "backend": "canvas2d",
+      "abelFontFaces": 1,
+      "localTypefaceCount": null,
+      "unregisteredFontFallbacks": null
+    },
+    {
+      "runId": 35984829169,
+      "sourceSha": "c4e9714123cdce801ec876ea9908f428d36b7df7",
+      "name": "canvas2d-hwpx-enabled",
+      "pixelHash": "a74c84fc7c3bdc708c3477c8b4f1b2e31d42f9e39a2fb927e69154271862004f",
+      "backend": "canvas2d",
+      "abelFontFaces": 1,
+      "localTypefaceCount": null,
+      "unregisteredFontFallbacks": null
+    },
+    {
+      "runId": 35984829169,
+      "sourceSha": "c4e9714123cdce801ec876ea9908f428d36b7df7",
+      "name": "canvas2d-refreshed",
+      "pixelHash": "a74c84fc7c3bdc708c3477c8b4f1b2e31d42f9e39a2fb927e69154271862004f",
+      "backend": "canvas2d",
+      "abelFontFaces": 1,
+      "localTypefaceCount": null,
+      "unregisteredFontFallbacks": null
+    },
+    {
+      "runId": 35984829169,
+      "sourceSha": "c4e9714123cdce801ec876ea9908f428d36b7df7",
+      "name": "canvas2d-font-deleted-refreshed",
+      "pixelHash": "20147c9f350a86c8aa05b9ce5d55b4bdc0451c26fe5a85adff89e38aef50af88",
+      "backend": "canvas2d",
+      "abelFontFaces": 0,
+      "localTypefaceCount": null,
+      "unregisteredFontFallbacks": null
+    },
+    {
+      "runId": 35984829169,
+      "sourceSha": "c4e9714123cdce801ec876ea9908f428d36b7df7",
+      "name": "canvas2d-font-restored-refreshed",
+      "pixelHash": "a74c84fc7c3bdc708c3477c8b4f1b2e31d42f9e39a2fb927e69154271862004f",
+      "backend": "canvas2d",
+      "abelFontFaces": 1,
+      "localTypefaceCount": null,
+      "unregisteredFontFallbacks": null
+    },
+    {
+      "runId": 35984829169,
+      "sourceSha": "c4e9714123cdce801ec876ea9908f428d36b7df7",
+      "name": "canvas2d-enabled-restarted",
+      "pixelHash": "a74c84fc7c3bdc708c3477c8b4f1b2e31d42f9e39a2fb927e69154271862004f",
+      "backend": "canvas2d",
+      "abelFontFaces": 1,
+      "localTypefaceCount": null,
+      "unregisteredFontFallbacks": null
+    },
+    {
+      "runId": 35984829169,
+      "sourceSha": "c4e9714123cdce801ec876ea9908f428d36b7df7",
+      "name": "canvas2d-disabled",
+      "pixelHash": "20147c9f350a86c8aa05b9ce5d55b4bdc0451c26fe5a85adff89e38aef50af88",
+      "backend": "canvas2d",
+      "abelFontFaces": 0,
+      "localTypefaceCount": null,
+      "unregisteredFontFallbacks": null
+    },
+    {
+      "runId": 35984829169,
+      "sourceSha": "c4e9714123cdce801ec876ea9908f428d36b7df7",
+      "name": "canvas2d-disabled-restarted",
+      "pixelHash": "20147c9f350a86c8aa05b9ce5d55b4bdc0451c26fe5a85adff89e38aef50af88",
+      "backend": "canvas2d",
+      "abelFontFaces": 0,
+      "localTypefaceCount": null,
+      "unregisteredFontFallbacks": null
+    },
+    {
+      "runId": 35984829169,
+      "sourceSha": "c4e9714123cdce801ec876ea9908f428d36b7df7",
+      "name": "canvaskit-hwp-absent",
+      "pixelHash": "514cf38c99b18030ad62fca58b538428dd08eddd5ca909ee336330e63bdeaab5",
+      "backend": "canvaskit",
+      "abelFontFaces": 0,
+      "localTypefaceCount": 0,
+      "unregisteredFontFallbacks": 1
+    },
+    {
+      "runId": 35984829169,
+      "sourceSha": "c4e9714123cdce801ec876ea9908f428d36b7df7",
+      "name": "canvaskit-hwpx-absent",
+      "pixelHash": "514cf38c99b18030ad62fca58b538428dd08eddd5ca909ee336330e63bdeaab5",
+      "backend": "canvaskit",
+      "abelFontFaces": 0,
+      "localTypefaceCount": 0,
+      "unregisteredFontFallbacks": 1
+    },
+    {
+      "runId": 35984829169,
+      "sourceSha": "c4e9714123cdce801ec876ea9908f428d36b7df7",
+      "name": "canvaskit-hwp-enabled",
+      "pixelHash": "01eea1f1bb61e3cedb5a5b96f42fd15cab473731fd0686181c7860fb57438a0b",
+      "backend": "canvaskit",
+      "abelFontFaces": 1,
+      "localTypefaceCount": 1,
+      "unregisteredFontFallbacks": 0
+    },
+    {
+      "runId": 35984829169,
+      "sourceSha": "c4e9714123cdce801ec876ea9908f428d36b7df7",
+      "name": "canvaskit-hwpx-enabled",
+      "pixelHash": "01eea1f1bb61e3cedb5a5b96f42fd15cab473731fd0686181c7860fb57438a0b",
+      "backend": "canvaskit",
+      "abelFontFaces": 1,
+      "localTypefaceCount": 1,
+      "unregisteredFontFallbacks": 0
+    },
+    {
+      "runId": 35984829169,
+      "sourceSha": "c4e9714123cdce801ec876ea9908f428d36b7df7",
+      "name": "canvaskit-refreshed",
+      "pixelHash": "01eea1f1bb61e3cedb5a5b96f42fd15cab473731fd0686181c7860fb57438a0b",
+      "backend": "canvaskit",
+      "abelFontFaces": 1,
+      "localTypefaceCount": 1,
+      "unregisteredFontFallbacks": 0
+    },
+    {
+      "runId": 35984829169,
+      "sourceSha": "c4e9714123cdce801ec876ea9908f428d36b7df7",
+      "name": "canvaskit-font-deleted-refreshed",
+      "pixelHash": "514cf38c99b18030ad62fca58b538428dd08eddd5ca909ee336330e63bdeaab5",
+      "backend": "canvaskit",
+      "abelFontFaces": 0,
+      "localTypefaceCount": 0,
+      "unregisteredFontFallbacks": 1
+    },
+    {
+      "runId": 35984829169,
+      "sourceSha": "c4e9714123cdce801ec876ea9908f428d36b7df7",
+      "name": "canvaskit-font-restored-refreshed",
+      "pixelHash": "01eea1f1bb61e3cedb5a5b96f42fd15cab473731fd0686181c7860fb57438a0b",
+      "backend": "canvaskit",
+      "abelFontFaces": 1,
+      "localTypefaceCount": 1,
+      "unregisteredFontFallbacks": 0
+    },
+    {
+      "runId": 35984829169,
+      "sourceSha": "c4e9714123cdce801ec876ea9908f428d36b7df7",
+      "name": "canvaskit-enabled-restarted",
+      "pixelHash": "01eea1f1bb61e3cedb5a5b96f42fd15cab473731fd0686181c7860fb57438a0b",
+      "backend": "canvaskit",
+      "abelFontFaces": 1,
+      "localTypefaceCount": 1,
+      "unregisteredFontFallbacks": 0
+    },
+    {
+      "runId": 35984829169,
+      "sourceSha": "c4e9714123cdce801ec876ea9908f428d36b7df7",
+      "name": "canvaskit-disabled",
+      "pixelHash": "514cf38c99b18030ad62fca58b538428dd08eddd5ca909ee336330e63bdeaab5",
+      "backend": "canvaskit",
+      "abelFontFaces": 0,
+      "localTypefaceCount": 0,
+      "unregisteredFontFallbacks": 1
+    },
+    {
+      "runId": 35984829169,
+      "sourceSha": "c4e9714123cdce801ec876ea9908f428d36b7df7",
+      "name": "canvaskit-disabled-restarted",
+      "pixelHash": "514cf38c99b18030ad62fca58b538428dd08eddd5ca909ee336330e63bdeaab5",
+      "backend": "canvaskit",
+      "abelFontFaces": 0,
+      "localTypefaceCount": 0,
+      "unregisteredFontFallbacks": 1
+    },
+    {
+      "runId": 36104289925,
+      "sourceSha": "a2f48b5013e86f9d21b67f4f36c79895f6a61297",
+      "result": "Windows native full-name/alias and duplicate-path regressions passed; archive/inventory verified locally; actual Windows NanumSquare GUI comparison awaits user."
+    }
+  ],
+  "linuxGuiRuns": [
+    {
+      "runId": 35978518579,
+      "attempt": 1,
+      "scope": "local-fonts",
+      "harnessSha": "a99dced3581532c7027d0b5d37b22ce4e6ab9a59",
+      "sourceSha": "8e7d26e44c09406d3203bb9140b2dbd8576d2375",
+      "status": "completed",
+      "conclusion": "failure",
+      "artifact": {
+        "digest": "sha256:2d97445c5208499fe02a00c86a6772587b882524e650ca1c1a158bb761ed6841",
+        "expired": false,
+        "id": 10799363182,
+        "name": "hwply-linux-gui-35978518579",
+        "size_in_bytes": 241596
+      },
+      "verifiedSteps": [
+        "producer-handoff",
+        "archive-download-digest",
+        "inventory-source-and-file-hashes",
+        "deb-install",
+        "app-launch",
+        "settings-disabled-ui"
+      ],
+      "guiObservationCount": 0,
+      "rawWebdriverExit": 1,
+      "failure": "getElementText(#sb-message) returned empty while screenshot showed disabled status; both renderer scenarios timed out before document load",
+      "correction": "reuse readStudioStatus (DOM textContent), retain per-renderer failure screenshot and DOM diagnostics",
+      "correctionGuiValidation": "status-text correction verified by run 35979852070; original run remains failed"
+    },
+    {
+      "runId": 35979852070,
+      "attempt": 1,
+      "scope": "local-fonts",
+      "harnessSha": "664d493e7bf79741daec0ed97c776491c3ae3dcf",
+      "sourceSha": "8e7d26e44c09406d3203bb9140b2dbd8576d2375",
+      "status": "completed",
+      "conclusion": "failure",
+      "artifact": {
+        "digest": "sha256:4a96d92ed189d4628d8f45e64b88487c6b12863e1bdcc5e82c8f3e2452ce6189",
+        "expired": false,
+        "id": 10800100959,
+        "name": "hwply-linux-gui-35979852070",
+        "size_in_bytes": 1554326
+      },
+      "rawWebdriverExit": 1,
+      "scenarioResults": {
+        "canvas2d": "passed",
+        "canvaskit": "failed"
+      },
+      "guiObservationCount": 18,
+      "processRestartCount": 4,
+      "failure": "CanvasKit manual refresh resets local typeface resources without preparing Abel again; restart restores localTypefaceCount=1",
+      "scopeLimits": [
+        "new-window not tested",
+        "CanvasKit disabled/restart steps not reached",
+        "Latin Abel fixture only",
+        "Windows user result pending"
+      ],
+      "exportReadback": "HWP/HWPX exports retain Abel font name and fixture text"
+    },
+    {
+      "runId": 35984829169,
+      "attempt": 1,
+      "scope": "local-fonts",
+      "harnessSha": "c4e9714123cdce801ec876ea9908f428d36b7df7",
+      "sourceSha": "c4e9714123cdce801ec876ea9908f428d36b7df7",
+      "producerRunId": 35981563185,
+      "producerArtifactId": 10801835084,
+      "status": "completed",
+      "conclusion": "success",
+      "artifact": {
+        "digest": "sha256:5a7cec0651e6a61a6d5b97417c32482ce2d3ea21bcfe41c2be8e5284bd9b355f",
+        "expired": false,
+        "id": 10801892314,
+        "name": "hwply-linux-gui-35984829169",
+        "size_in_bytes": 1752027,
+        "url": "https://github.com/dandacompany/hwply/actions/runs/35984829169/artifacts/10801892314"
+      },
+      "rawWebdriverExit": 0,
+      "scenarioResults": {
+        "canvas2d": "passed",
+        "canvaskit": "passed"
+      },
+      "guiObservationCount": 20,
+      "processRestartCount": 6,
+      "processRestarts": [
+        {
+          "scenario": "process-restart",
+          "before": [
+            "7825"
+          ],
+          "after": [
+            "7990"
+          ]
+        },
+        {
+          "scenario": "process-restart",
+          "before": [
+            "7990"
+          ],
+          "after": [
+            "8101"
+          ]
+        },
+        {
+          "scenario": "process-restart",
+          "before": [
+            "8101"
+          ],
+          "after": [
+            "8201"
+          ]
+        },
+        {
+          "scenario": "process-restart",
+          "before": [
+            "8201"
+          ],
+          "after": [
+            "8306"
+          ]
+        },
+        {
+          "scenario": "process-restart",
+          "before": [
+            "8306"
+          ],
+          "after": [
+            "8413"
+          ]
+        },
+        {
+          "scenario": "process-restart",
+          "before": [
+            "8413"
+          ],
+          "after": [
+            "8515"
+          ]
+        }
+      ],
+      "reviewedAcceptance": "passed within local-fonts scope; recorder acceptance remains unverified",
+      "scopeLimits": [
+        "new-window not tested",
+        "Latin Abel fixture only",
+        "Windows user result pending",
+        "physical printing and PDF GUI outside this run"
+      ],
+      "exportReadback": "Downloaded HWP/HWPX exports retain Abel font name and fixture text",
+      "visualReview": "Actual page PNGs confirm CanvasKit refresh and enabled restart retain Abel; disabled restart uses fallback"
+    },
+    {
+      "runId": 36222469761,
+      "attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "harnessSha": "8d4d8a10ba8c5bab49c4a65ffcc3aa3cbe1d7fe4",
+      "sourceSha": "a2f48b5013e86f9d21b67f4f36c79895f6a61297",
+      "producerRunId": "36104289925",
+      "artifactId": 10899666538,
+      "artifactDigest": "sha256:ee80ee8b5e30d94ab91e573a6a986f89cfe41e175eb9117bcf9bd348aafced74",
+      "installedDebSha256": "f265e9dd0e9ae5e4b5ef5c4a95edf282992909a0301e3e7c4ecfc13226a1f098",
+      "review": "Native metadata and paired page PNGs reviewed; downloaded HWP/HWPX font and text checked",
+      "pageObservations": 24,
+      "processRestarts": 6,
+      "newWindowScenarios": 4,
+      "passed": [
+        "Canvas2D/CanvasKit HWP/HWPX local application",
+        "Re-detection and removed/restored font supply",
+        "Enabled/disabled process restart restoration",
+        "Enabled/disabled new native windows with distinct handles in same process",
+        "Exported HWP/HWPX preserve Abel and public sample text"
+      ],
+      "limitations": [
+        "Linux x64 only; public Abel fixture",
+        "Disabled selection stops direct supply, not OS CSS font lookup",
+        "Windows final integration checklist belongs to upcoming v0.8.6 candidate acceptance"
+      ]
+    }
+  ],
+  "previousFullRuns": [
+    {
+      "runId": 35972535353,
+      "attempt": 1,
+      "profile": "full",
+      "scope": "full",
+      "workflowSha": "8e7d26e44c09406d3203bb9140b2dbd8576d2375",
+      "sourceSha": "8e7d26e44c09406d3203bb9140b2dbd8576d2375",
+      "ciStatus": "completed",
+      "ciConclusion": "success",
+      "jobs": [
+        {
+          "name": "select",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Windows PDF cleanup tests",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "artifacts / plan",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "fast",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "installer",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Unit tests",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "artifacts / fast / Fast Node and Studio contracts",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / fast / Fast Windows PowerShell contracts",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / windows / Build windows-x64",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / core / Core windows-x64",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / core / Core linux-x64",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / core / Core linux-arm64",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / linux / Build linux-arm64",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / linux / Build linux-x64",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / smoke / Installer contract msi",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / smoke / Installer contract msi-forced-reinstall",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / smoke / Installer contract nsis",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / smoke / Compare Windows thumbnail context ${{ matrix.replica }}",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "artifacts / smoke / Verify Windows installer contract status",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / result",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "artifacts": [
+        {
+          "digest": "sha256:d9663c9395f6028c13e3bd5f4cb52abe7634e5e932ab6620604bb8872b4e0e31",
+          "id": 10797838038,
+          "name": "hwply-desktop-windows-x64",
+          "size_in_bytes": 124114070,
+          "url": "https://github.com/dandacompany/hwply/actions/runs/35972535353/artifacts/10797838038",
+          "archiveDigestVerifiedLocally": true,
+          "installers": [
+            {
+              "path": "msi/hwply_0.1.0_x64_en-US.msi",
+              "kind": "msi",
+              "size": 62197760,
+              "sha256": "176df9b0bb3534976d2d67c30ee9c94b30ce30ba9447075fd7fe6fd124ed883b"
+            },
+            {
+              "path": "nsis/hwply_0.1.0_x64-setup.exe",
+              "kind": "nsis",
+              "size": 55243160,
+              "sha256": "0205379f712bc51435c3d2e5f8053dc80aeec6de7fc202e1773afeff233d4978"
+            }
+          ],
+          "inventoryVerifiedLocally": true
+        },
+        {
+          "digest": "sha256:0c7b8f4e0563b5cb0ca96d62bba45495d2493edbb81e12f6ddc195e989fe2d6e",
+          "id": 10797564590,
+          "name": "hwply-desktop-linux-x64",
+          "size_in_bytes": 547618524,
+          "url": "https://github.com/dandacompany/hwply/actions/runs/35972535353/artifacts/10797564590",
+          "archiveDigestVerifiedLocally": true,
+          "installers": [
+            {
+              "path": "appimage/hwply_0.1.0_amd64.AppImage",
+              "kind": "appimage",
+              "size": 134015480,
+              "sha256": "8c84a94e511e604f8369dc1953fefc59be87cd547a2e686d51f97798834c833b"
+            },
+            {
+              "path": "deb/hwply_0.1.0_amd64.deb",
+              "kind": "deb",
+              "size": 64833074,
+              "sha256": "2b1440bcba2f63263bae522d3fc21921a47f6efc611fe9e7c8a7cf6482f8fca3"
+            },
+            {
+              "path": "rpm/hwply-0.1.0-1.x86_64.rpm",
+              "kind": "rpm",
+              "size": 64833104,
+              "sha256": "77e061a0bb6c0ea2dcb46d6bda2962fea591c4c6eaccd10138e160c856123bb4"
+            }
+          ],
+          "inventoryVerifiedLocally": true
+        },
+        {
+          "digest": "sha256:18d189411c06437fbd5dc37ec8dee5b1467d1d336db100a768ff8f1809bbf184",
+          "id": 10797209552,
+          "name": "hwply-desktop-linux-arm64",
+          "size_in_bytes": 194103842,
+          "url": "https://github.com/dandacompany/hwply/actions/runs/35972535353/artifacts/10797209552",
+          "archiveDigestVerifiedLocally": false
+        }
+      ],
+      "windowsInstallerRawResults": [
+        {
+          "installer": "nsis",
+          "scenario": "lifecycle",
+          "rawStatus": "failed",
+          "rawSmoke": "failure",
+          "diagnosticContract": "success",
+          "failureCategories": [
+            "thumbnail-render"
+          ]
+        },
+        {
+          "installer": "msi",
+          "scenario": "forced-reinstall",
+          "rawStatus": "failed",
+          "rawSmoke": "failure",
+          "diagnosticContract": "success",
+          "failureCategories": [
+            "reboot-required"
+          ]
+        },
+        {
+          "installer": "msi",
+          "scenario": "lifecycle",
+          "rawStatus": "passed",
+          "rawSmoke": "success",
+          "diagnosticContract": "success",
+          "failureCategories": []
+        }
+      ],
+      "rawLimitations": [
+        "NSIS Shell thumbnail HRESULT 0x80040154",
+        "MSI forced reinstall exit 3010 (reboot required)"
+      ]
+    },
+    {
+      "runId": 35981563185,
+      "attempt": 1,
+      "profile": "full",
+      "scope": "full",
+      "workflowSha": "c4e9714123cdce801ec876ea9908f428d36b7df7",
+      "sourceSha": "c4e9714123cdce801ec876ea9908f428d36b7df7",
+      "ciStatus": "completed",
+      "ciConclusion": "success",
+      "jobs": [
+        {
+          "name": "select",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Windows PDF cleanup tests",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "artifacts / plan",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "installer",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Unit tests",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "fast",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "artifacts / fast / Fast Node and Studio contracts",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / fast / Fast Windows PowerShell contracts",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / windows / Build windows-x64",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / linux / Build linux-x64",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / core / Core linux-x64",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / core / Core windows-x64",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / linux / Build linux-arm64",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / core / Core linux-arm64",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / smoke / Installer contract nsis",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / smoke / Installer contract msi",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / smoke / Installer contract msi-forced-reinstall",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / smoke / Compare Windows thumbnail context ${{ matrix.replica }}",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "artifacts / smoke / Verify Windows installer contract status",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / result",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "artifacts": [
+        {
+          "digest": "sha256:b5b0f692f3da9fdb773946078c78b9f7e86b1d31a30bd91e8b5ad33a854fd4da",
+          "expired": false,
+          "id": 10801835084,
+          "name": "hwply-desktop-linux-x64",
+          "size_in_bytes": 547617791,
+          "url": "https://github.com/dandacompany/hwply/actions/runs/35981563185/artifacts/10801835084",
+          "archiveDigestVerifiedLocally": false,
+          "installers": [
+            {
+              "path": "appimage/hwply_0.1.0_amd64.AppImage",
+              "kind": "appimage",
+              "size": 134011384,
+              "sha256": "443603d1fd93109e0b7d6e56496c2facaf800e79b1f01acada8b5058ddc906dd"
+            },
+            {
+              "path": "deb/hwply_0.1.0_amd64.deb",
+              "kind": "deb",
+              "size": 64833542,
+              "sha256": "05154576a1a35a065d0706cc75937a1aed20c087dac20f6a2f50538bb7ef2e17"
+            },
+            {
+              "path": "rpm/hwply-0.1.0-1.x86_64.rpm",
+              "kind": "rpm",
+              "size": 64833317,
+              "sha256": "2a7441f0b79788abc11f4dd71e895c051c6d45540d8e33fdc11b695cbdc43925"
+            }
+          ],
+          "inventoryVerifiedLocally": false,
+          "archiveAndInventoryVerifiedByGuiRun": 35984829169
+        },
+        {
+          "digest": "sha256:895f8ae7a4c4d0b384383e0d08b6890899991c9fb057ff6bd8ef8428230aeb3c",
+          "expired": false,
+          "id": 10801646330,
+          "name": "hwply-desktop-windows-x64",
+          "size_in_bytes": 124114611,
+          "url": "https://github.com/dandacompany/hwply/actions/runs/35981563185/artifacts/10801646330",
+          "archiveDigestVerifiedLocally": true,
+          "installers": [
+            {
+              "path": "msi/hwply_0.1.0_x64_en-US.msi",
+              "kind": "msi",
+              "size": 62193664,
+              "sha256": "9303bf8a856a0382f81ac868864f286ca6c148cc23f21ebc22e92cc5d9dca008"
+            },
+            {
+              "path": "nsis/hwply_0.1.0_x64-setup.exe",
+              "kind": "nsis",
+              "size": 55245951,
+              "sha256": "b8563d5894e55a1f9f9817ec106c23639d4fd42ef71c7ef07808343021f12a5f"
+            }
+          ],
+          "inventoryVerifiedLocally": true
+        },
+        {
+          "digest": "sha256:74c73bbad186faf053d495da4e60ad1ee484c40e752c6d3491c8ee566d739177",
+          "expired": false,
+          "id": 10800353809,
+          "name": "hwply-desktop-linux-arm64",
+          "size_in_bytes": 194106115,
+          "url": "https://github.com/dandacompany/hwply/actions/runs/35981563185/artifacts/10800353809",
+          "archiveDigestVerifiedLocally": false
+        }
+      ],
+      "windowsInstallerRawResults": [
+        {
+          "installer": "nsis",
+          "scenario": "lifecycle",
+          "rawStatus": "failed",
+          "rawSmoke": "failure",
+          "diagnosticContract": "success",
+          "failureCategories": [
+            "thumbnail-render"
+          ]
+        },
+        {
+          "installer": "msi",
+          "scenario": "forced-reinstall",
+          "rawStatus": "failed",
+          "rawSmoke": "failure",
+          "diagnosticContract": "success",
+          "failureCategories": [
+            "reboot-required"
+          ]
+        },
+        {
+          "installer": "msi",
+          "scenario": "lifecycle",
+          "rawStatus": "passed",
+          "rawSmoke": "success",
+          "diagnosticContract": "success",
+          "failureCategories": []
+        }
+      ],
+      "rawLimitations": [
+        "NSIS Shell thumbnail HRESULT 0x80040154",
+        "MSI forced reinstall exit 3010 (reboot required)"
+      ],
+      "gui": {
+        "windows-x64": "user screenshots show NanumSquare mismatch; desktop font-name resolution defect reproduced from official font metadata; exact VDI installer/font metadata not independently verified",
+        "linux-x64": "passed: Canvas2D and CanvasKit local-fonts scenarios; new-window unverified",
+        "linux-arm64": "not in GUI acceptance scope"
+      }
+    }
+  ],
+  "windowsUserReports": [
+    {
+      "reportedOn": "2026-09-24",
+      "environment": "Windows VDI; OS version unspecified",
+      "producerRunId": 35972535353,
+      "artifactId": 10797838038,
+      "sourceSha": "8e7d26e44c09406d3203bb9140b2dbd8576d2375",
+      "installer": "nsis",
+      "evidence": "User report and attached screenshot",
+      "passed": [
+        "Settings modal does not reappear on reopening a document",
+        "Settings modal does not reappear on opening another document",
+        "Settings modal does not reappear after application restart"
+      ],
+      "unverified": [
+        "Actual local-font rendering",
+        "New-window scenario",
+        "Corrected candidate c4e9714123cdce801ec876ea9908f428d36b7df7"
+      ],
+      "scope": "Application modal persistence only; does not supersede CI NSIS thumbnail failure"
+    },
+    {
+      "reportedOn": "2026-09-25",
+      "environment": "Windows VDI; version unspecified",
+      "evidence": "User-provided EML body and eight inline screenshots; original email retained outside repository",
+      "candidate": "Guide references c4e9714123cdce801ec876ea9908f428d36b7df7; installed binary not independently identified",
+      "result": "not accepted",
+      "observed": [
+        "Catalog notification reports 152 families",
+        "NanumSquare asterisk shape and stroke weight differ from Hancom",
+        "No clear visual change in installation before/after screenshots"
+      ],
+      "excluded": [
+        "Abel iii stroke difference: user identifies upstream paragraph-fitting behavior; excluded from this investigation"
+      ],
+      "unverified": [
+        "Actual installed NanumSquare file/hash/location",
+        "Actual renderer backend in VDI",
+        "Latest candidate new-window/settings lifecycle results"
+      ]
+    },
+    {
+      "reportedOn": "2026-09-26",
+      "environment": "Windows VDI; screenshot taskbar and user report",
+      "candidateContext": {
+        "producerRunId": 36104289925,
+        "artifactId": 10850898849,
+        "sourceSha": "a2f48b5013e86f9d21b67f4f36c79895f6a61297",
+        "basis": "Follow-up to supplied installer; installed binary hash not independently measured"
+      },
+      "evidence": "User explicitly confirms NanumSquare and Abel apply normally after installing fonts and re-detecting; three screenshots supplied outside repository",
+      "passed": [
+        "NanumSquare actual application after installation and re-detection (user reported)",
+        "Abel actual application after installation and re-detection (user reported)"
+      ],
+      "observed": [
+        "Abel document rendering and detection notification visible",
+        "Font menu currently selects document category; three document fonts visible"
+      ],
+      "excluded": [
+        "Abel iii paragraph-fitting thickness remains upstream scope"
+      ],
+      "unverified": [
+        "Current-candidate restart and new-window behavior",
+        "VDI installed font file hash/location and effective renderer backend"
+      ],
+      "scope": "Selected fonts and install/re-detect scenario only; not all-font, Linux-current-candidate, or release acceptance"
+    }
+  ],
+  "fontNameInvestigation": {
+    "date": "2026-09-25",
+    "source": "https://hangeul.naver.com/hangeul_static/webfont/zips/nanum-square.zip",
+    "fontFile": "NanumSquareB.ttf",
+    "sha256": "f737d58294faec9c632189af3a2a3e48e49c03c0256de09db61e879e2857bfbf",
+    "weight": 700,
+    "fontNames": {
+      "legacyFamilyAndFullNames": [
+        "NanumSquare Bold",
+        "나눔스퀘어 Bold"
+      ],
+      "typographicFamilies": [
+        "NanumSquare",
+        "나눔스퀘어"
+      ],
+      "postscriptName": "NanumSquareB"
+    },
+    "confirmedDefects": [
+      "fontdb 0.23 prefers typographic family; desktop catalog omits legacy/full face names needed by document",
+      "Localized rows for one file become separate records and cause PostScript-name ambiguity"
+    ],
+    "reproduction": {
+      "method": "Transpile current product TS modules to temporary directory; catalog inputs derived from official SFNT metadata and inspected fontdb source; mock native IPC and browser FontFace only",
+      "documentRequest": "나눔스퀘어 Bold",
+      "matchingRecord": null,
+      "fontReadCalls": 0,
+      "registeredFontFaces": 0,
+      "canvasKitByteMapSize": 0,
+      "cases": [
+        "Bold alone with localized names",
+        "Regular/Bold/ExtraBold/Light with localized names"
+      ],
+      "positiveControl": "English family only and matching family/PostScript request registers one face and returns one byte entry"
+    },
+    "limits": [
+      "No Windows runtime or Rust desktop execution in this platform-neutral investigation",
+      "Actual VDI font metadata pending",
+      "Font-name defect independent of upstream Abel paragraph-fitting behavior"
+    ],
+    "scope": "Investigation only; no product source changes or additional CI"
+  },
+  "failedFullRuns": [
+    {
+      "runId": 36078615608,
+      "attempt": 1,
+      "profile": "full",
+      "scope": "full",
+      "sourceSha": "8d7c19e9c9013b0715ac73066af0c893e59ab11d",
+      "workflowSha": "8d7c19e9c9013b0715ac73066af0c893e59ab11d",
+      "ciStatus": "completed",
+      "ciConclusion": "failure",
+      "jobs": [
+        {
+          "name": "select",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Windows PDF cleanup tests",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "artifacts / plan",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "fast",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Unit tests",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "installer",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "artifacts / fast / Fast Node and Studio contracts",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / fast / Fast Windows PowerShell contracts",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / windows / Build windows-x64",
+          "status": "completed",
+          "conclusion": "failure"
+        },
+        {
+          "name": "artifacts / core / Core linux-x64",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / linux / Build linux-arm64",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / linux / Build linux-x64",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / core / Core linux-arm64",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / core / Core windows-x64",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "artifacts / smoke",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "artifacts / result",
+          "status": "completed",
+          "conclusion": "failure"
+        }
+      ],
+      "artifacts": [
+        {
+          "digest": "sha256:24e229e03e023fc11b189b85a3350267403d3f7a06f7d9cbb79d078e6e61779a",
+          "expired": false,
+          "id": 10841767132,
+          "name": "hwply-desktop-linux-arm64",
+          "size_in_bytes": 194145886
+        },
+        {
+          "digest": "sha256:38c6fb620a0f0349d0ac0a99d2b968a5e067a80ed6a8169acd23c4afb41b4a8d",
+          "expired": false,
+          "id": 10841313834,
+          "name": "hwply-desktop-linux-x64",
+          "size_in_bytes": 547712364
+        }
+      ],
+      "windowsFailure": "187 desktop Rust tests passed; catalog fixture sourceKind expected file-backed but got system-installed because test used a non-canonical root on Windows. Actual font_names extraction passed.",
+      "correctionSha": "639563ad7221d451cd5277c28c3c9b87566d4dec",
+      "correctionScope": "Test setup now canonicalizes its root like the production caller; no production source changes after 8d7c19e."
+    }
+  ],
+  "supersededCandidates": [
+    {
+      "sourceSha": "639563ad7221d451cd5277c28c3c9b87566d4dec",
+      "runId": 36080570543,
+      "profile": "full",
+      "scope": "full",
+      "windowsGui": "user will verify new installer",
+      "linuxGui": "not executed for this candidate",
+      "handoffStatus": "superseded-before-handoff",
+      "reason": "Additional correction needed for ordinary and canonical paths identifying the same Windows font file",
+      "ciStatus": "completed",
+      "cancelRequested": true,
+      "cancelConfirmed": false,
+      "ciConclusion": "success",
+      "evidenceSource": "Connected GitHub API: all 20 latest-attempt jobs checked, including final result success"
+    }
+  ],
+  "nativeFontRegression": {
+    "runId": 36104289925,
+    "windowsDesktopTestsPassed": 189,
+    "linuxArm64DesktopTestsPassed": 187,
+    "verifiedTests": [
+      "preserves_actual_korean_and_english_bold_face_names",
+      "catalog_preserves_real_full_names_and_supported_path",
+      "repeated_scans_of_one_physical_font_keep_one_row_per_localized_family"
+    ],
+    "windowsJobId": 107974240110,
+    "linuxArm64JobId": 107974240162
+  },
+  "followupAcceptance": {
+    "requestedOn": "2026-09-26",
+    "scope": "User requested Task74 integration then separate v0.8.6 upgrade and will perform final Windows installer checks",
+    "windowsRemaining": [
+      "Final integrated candidate restart/new-window",
+      "Final integrated candidate NanumSquare/Abel and other release checks"
+    ],
+    "releaseAcceptance": "not granted"
+  }
+}

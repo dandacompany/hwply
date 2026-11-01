@@ -1,0 +1,56 @@
+lock_version = 1
+rhwp_repo = "https://github.com/edwardkim/rhwp.git"
+rhwp_ref_kind = "release-tag"
+rhwp_release_tag = "v0.8.7"
+rhwp_commit = "1a76570e833917d15817415a53c09ad61ab3203f"
+source_cargo_lock_sha256 = "f24e98940a42000cea09500bea090cc571773e761c3d068769227e82a0e2f024"
+wasm_pack_version = "0.15.0"
+wasm_build_profile = "wasm-pack build --target web --release"
+
+[[artifacts]]
+path = "apps/studio-host/vendor/rhwp-core/package.json"
+sha256 = "267a441ed76906609928a1ca8d013b90f72c9f353c2ef91c2755774ffe6ca390"
+size = 415
+
+[[artifacts]]
+path = "apps/studio-host/vendor/rhwp-core/rhwp.js"
+sha256 = "70cde06a369fa7fd4fc8bc8f3d6acaee158596ba1a116a2c72159002b0b5654e"
+size = 454520
+
+[[artifacts]]
+path = "apps/studio-host/vendor/rhwp-core/rhwp.d.ts"
+sha256 = "4742243ad37a992ba3deec56a3e3e7b57f05073e49806027147acc054b5fce85"
+size = 183636
+
+[[artifacts]]
+path = "apps/studio-host/vendor/rhwp-core/rhwp_bg.wasm"
+sha256 = "54cf95014312e605c51b98eb9021247ea79ef2bbd0a7080e11c011d0246e3989"
+size = 11821756
+
+[[artifacts]]
+path = "apps/studio-host/vendor/rhwp-core/rhwp_bg.wasm.d.ts"
+sha256 = "8c9f8bbb336094aa5017fdc03b1059cbe60e8af67086fec1287000a0e322f151"
+size = 61666
+
+[[artifacts]]
+path = "apps/studio-host/vendor/rhwp-core/LICENSE"
+sha256 = "1c3a7d5643b163a3ead4965e1bea33b832caee5bfca265efe42afcd7bc696b5b"
+size = 1072
+
+[[rhwp_cli]]
+target = "aarch64-apple-darwin"
+asset = "rhwp-v0.8.7-macos-aarch64.tar.gz"
+sha256 = "6ed46aa63f6d10c447842999f73abc59cf9586c5645fefc5e763bd6a6d43662d"
+binary = "rhwp/rhwp"
+
+[[rhwp_cli]]
+target = "x86_64-apple-darwin"
+asset = "rhwp-v0.8.7-macos-x86_64.tar.gz"
+sha256 = "07b1a5ea570e410d1b52b4d848a94f00c64674e84004883c62efad7daab61da4"
+binary = "rhwp/rhwp"
+
+[[rhwp_cli]]
+target = "x86_64-pc-windows-msvc"
+asset = "rhwp-v0.8.7-windows-x86_64.zip"
+sha256 = "f7ac326e98f595ae8fecd8da7a614ee9a37db77bdf938782a8e07c9da473ec6f"
+binary = "rhwp/rhwp.exe"

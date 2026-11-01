@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-09-30",
+  "pins": [
+    {
+      "action": "actions/checkout",
+      "version": "v7.0.1",
+      "sha": "3d3c42e5aac5ba805825da76410c181273ba90b1",
+      "sourceRef": "refs/tags/v7.0.1",
+      "sourceUrl": "https://github.com/actions/checkout/releases/tag/v7.0.1",
+      "risk": "read-source"
+    },
+    {
+      "action": "actions/setup-node",
+      "version": "v7.0.0",
+      "sha": "820762786026740c76f36085b0efc47a31fe5020",
+      "sourceRef": "refs/tags/v7.0.0",
+      "sourceUrl": "https://github.com/actions/setup-node/releases/tag/v7.0.0",
+      "risk": "runtime"
+    },
+    {
+      "action": "actions/upload-artifact",
+      "version": "v7.0.1",
+      "sha": "043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+      "sourceRef": "refs/tags/v7.0.1",
+      "sourceUrl": "https://github.com/actions/upload-artifact/releases/tag/v7.0.1",
+      "risk": "artifact-write"
+    },
+    {
+      "action": "actions/cache",
+      "version": "v5.1.0",
+      "sha": "caa296126883cff596d87d8935842f9db880ef25",
+      "sourceRef": "refs/tags/v5.1.0",
+      "sourceUrl": "https://github.com/actions/cache/releases/tag/v5.1.0",
+      "risk": "cache-write"
+    },
+    {
+      "action": "dtolnay/rust-toolchain",
+      "version": "stable",
+      "sha": "6bed0761d98439e5a578e2877258200ad565ba87",
+      "sourceRef": "refs/heads/stable",
+      "sourceUrl": "https://github.com/dtolnay/rust-toolchain/tree/6bed0761d98439e5a578e2877258200ad565ba87",
+      "risk": "toolchain"
+    }
+  ]
+}

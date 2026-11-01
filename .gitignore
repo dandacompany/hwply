@@ -1,0 +1,74 @@
+# Rust
+/target/
+/target-local/
+Cargo.lock
+!/apps/desktop/src-tauri/Cargo.lock
+!/apps/cli/Cargo.lock
+!/apps/thumbnail-handler/Cargo.lock
+!/apps/thumbnail-worker/Cargo.lock
+!/apps/linux-thumbnailer/Cargo.lock
+!/crates/document-preview/Cargo.lock
+apps/desktop/src-tauri/target/
+apps/cli/target/
+apps/desktop/src-tauri/gen/
+apps/desktop/src-tauri/windows/thumbnail-resources/
+apps/desktop/src-tauri/linux/thumbnail-resources/
+apps/thumbnail-handler/target/
+apps/thumbnail-worker/target/
+crates/document-preview/target/
+
+# JavaScript
+node_modules/
+apps/*/node_modules/
+apps/studio-host/dist/
+.pnpm-store/
+/_site/
+/.updater-work/
+
+# Updater signing material (the public key is embedded only in the tracked release overlay)
+/.updater-keys/
+/apps/desktop/src-tauri/*.key
+/apps/desktop/src-tauri/*.key.pub
+
+*.wasm
+!apps/studio-host/vendor/rhwp-core/rhwp_bg.wasm
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+/assets/fonts/hamchob-r.woff2
+/assets/fonts/hamchod-r.woff2
+/assets/fonts/h2hdrm.woff2
+/assets/fonts/hygprm.woff2
+/assets/fonts/hygtre.woff2
+/assets/fonts/hymjre.woff2
+/assets/fonts/ArialW05-Regular.woff2
+/assets/fonts/Calibri.woff2
+/assets/fonts/CourierNewW05-Regular.woff2
+/assets/fonts/TahomaW05-Regular.woff2
+/assets/fonts/TimesNewRomanW05-Regular.woff2
+/assets/fonts/VerdanaW05-Regular.woff2
+/assets/fonts/MalgunGothicW35-Regular.woff2
+/assets/fonts/WebdingsW95-Regular.woff2
+/assets/fonts/WingdingsW95-3.woff2
+
+.claude/
+
+# 환경변수 (민감 정보)
+.env
+.env.docker
+
+# hwply
+.superpowers/
+apps/desktop/src-tauri/binaries/
+dist/
+
+# 내부 설계·계획·작업 노트(공개하지 않음, NAS Backup/hwply-dev-docs 에 보관)
+docs/superpowers/
+# 이 맥 전용 macOS 릴리스 설정(서명 identity·bws 비밀 ID)
+scripts/release/macos.local.env

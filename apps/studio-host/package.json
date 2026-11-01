@@ -1,0 +1,28 @@
+{
+  "name": "@hwply/studio-host",
+  "version": "0.1.0",
+  "private": true,
+  "description": "hwply studio host overlay for upstream rhwp-studio",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@noble/hashes": "^2.2.0",
+    "@tauri-apps/api": "^2.10.1",
+    "@tauri-apps/plugin-dialog": "^2.7.0",
+    "@tauri-apps/plugin-fs": "2.5.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.2",
+    "canvaskit-wasm": "^0.41.1",
+    "happy-dom": "^20.14.6",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.14",
+    "vitest": "^4.1.2"
+  }
+}

@@ -1,0 +1,77 @@
+name: hwply release (Windows)
+
+# 태그(v*)를 밀면 Windows NSIS 설치 파일(미서명)과 업데이터 서명(.sig)을 만들어 같은 이름의 **초안** 릴리스에 올린다.
+# macOS 는 서명 인증서가 로컬 키체인에만 있어 scripts/release/macos.sh 로 이 맥에서 만든다.
+# 게시(초안 해제)는 사람이 확인한 뒤 한다 — 이 워크플로는 게시하지 않는다.
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  windows:
+    name: Windows installer
+    runs-on: windows-2025
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Fetch upstream rhwp (sparse, pinned)
+        shell: bash
+        run: bash scripts/upstream/init.sh
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+      - name: Enable pnpm
+        shell: bash
+        run: corepack enable
+      - name: Install Node dependencies
+        shell: bash
+        run: pnpm install --frozen-lockfile
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@6bed0761d98439e5a578e2877258200ad565ba87 # stable
+      - name: Prepare sidecars (hwply-cli, rhwp)
+        shell: bash
+        run: node scripts/prepare-sidecars.mjs --target x86_64-pc-windows-msvc --profile release
+      - name: Build NSIS installer and updater artifacts
+        shell: bash
+        env:
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
+        run: >-
+          pnpm --filter hwply-desktop exec tauri build --bundles nsis
+          --config src-tauri/tauri.bundle.conf.json --config src-tauri/tauri.updater.conf.json
+      - name: Check bundle sidecars
+        shell: bash
+        run: node scripts/check-bundle-sidecars.mjs --dir apps/desktop/src-tauri/target/release
+      - name: Upload artifact
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: hwply-windows-installer
+          path: |
+            apps/desktop/src-tauri/target/release/bundle/nsis/*-setup.exe
+            apps/desktop/src-tauri/target/release/bundle/nsis/*-setup.exe.sig
+          if-no-files-found: error
+      - name: Upload to draft release
+        if: startsWith(github.ref, 'refs/tags/v')
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          gh release view "$TAG" >/dev/null 2>&1 \
+            || gh release create "$TAG" --draft --title "hwply ${TAG#v}" --notes ""
+          gh release upload "$TAG" apps/desktop/src-tauri/target/release/bundle/nsis/*-setup.exe \
+            apps/desktop/src-tauri/target/release/bundle/nsis/*-setup.exe.sig --clobber
