@@ -4,6 +4,7 @@
 
 [![CI](https://github.com/dandacompany/hwply/actions/workflows/ci.yml/badge.svg)](https://github.com/dandacompany/hwply/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![skills.sh](https://img.shields.io/badge/skills.sh-hwply-blue)](https://skills.sh/dandacompany/hwply)
 [![bundled rhwp v0.8.7](https://img.shields.io/badge/bundled%20rhwp-v0.8.7%20%C2%B7%201a76570e-5865f2)](https://github.com/edwardkim/rhwp/releases/tag/v0.8.7)
 
 한글 문서를 다루는 AI 도구는 대개 파일을 읽어 새 파일을 만든다. 그 사이 사람이 화면에서 같은 문서를 고치고 있었다면
@@ -33,6 +34,7 @@
 
 - **터미널에서 `hwply`·`rhwp` 명령 쓰기** — macOS 는 `~/.local/bin` 에 앱 안의 실행 파일을 가리키는 링크를 만든다. Windows 는 `%LOCALAPPDATA%\hwply\bin` 에 복사하고 사용자 PATH 에 더한다.
 - **skill 설치** — Claude Code(`~/.claude/skills/hwply`), Codex·기타(`~/.agents/skills/hwply`). 폴더가 있는 쪽만 기본으로 고른다. 복사본으로 설치한다.
+  앱 없이 skill 만 받으려면 `skills add dandacompany/hwply@hwply -g --copy -a claude-code` (단, 열린 문서 작업에는 앱의 `hwply` CLI 가 필요하다).
 
 이미 같은 이름의 다른 파일이나 직접 만든 skill 이 있으면 건드리지 않고 건너뛴다. 같은 일은 언제든 터미널에서 다시 할 수 있다.
 
